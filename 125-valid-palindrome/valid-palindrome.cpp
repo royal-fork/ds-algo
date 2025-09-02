@@ -1,27 +1,26 @@
+#include <cctype>
 class Solution {
 public:
-    bool pali(string& res){
-        int i=0;
-        int j=res.length()-1;
-        while(i<j){
-            if(tolower(res[i])!=tolower(res[j])){
-                return 0;
-            }else{
-                i++;
-                j--;
+    bool pali(string &res) {
+        int start = 0;
+        int end = res.size() - 1;
+        while (end > start) {
+            if (tolower(res[start]) != tolower(res[end])) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
 
+    bool isPalindrome(string s) {
+        string res = "";
+        for (int i = 0; i < s.size(); i++) {
+            if (isalnum(s[i])) {
+                res.push_back(s[i]);
             }
         }
-        return 1;
-
-    }
-    bool isPalindrome(string s) {
-        string res="";//populating result string with only alpha and numeric
-        for(auto it:s)
-        if(isalnum(it)){//isalnum
-            res.push_back(it);
-        }
         return pali(res);
-        
     }
 };
