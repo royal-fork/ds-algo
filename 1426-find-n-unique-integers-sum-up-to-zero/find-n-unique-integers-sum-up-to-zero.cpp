@@ -7,12 +7,12 @@ public:
         res.push_back(0);
         for(int i=1; i<=n/2;i++){
         res.push_back(i);
-        res.insert(res.begin(), -i);
+        res.push_back(-i);
                }
         }else{//evenwla scene
         for(int i=1; i<=n/2;i++){
         res.push_back(i);
-        res.insert(res.begin(), -i);
+        res.push_back(-i);
         }
 
 
