@@ -17,12 +17,7 @@ public:
 
         int take = nums1[i] * nums2[j];
 
-        int res = max({
-            take + dp(i + 1, j + 1), // take both and continue
-            take,                   // take and end here
-            dp(i + 1, j),            // skip nums1[i]
-            dp(i, j + 1)             // skip nums2[j]
-        });
+        int res = max({take + dp(i + 1, j + 1), take,dp(i + 1, j),dp(i, j + 1)});
 
         return memo[i][j] = res;
     }
