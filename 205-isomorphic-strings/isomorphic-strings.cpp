@@ -1,26 +1,20 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        unordered_map<char, int> charIndexS;
-        unordered_map<char, int> charIndexT;
+        unordered_map<char, int> indexs;
+        unordered_map<char, int> indext;
 
-        for (int i = 0; i < s.length(); i++) {
-            if (charIndexS.find(s[i]) == charIndexS.end()) {
-                charIndexS[s[i]] = i;
+        for (int i = 0; i < s.size(); i++) {
+            if (indexs.find(s[i]) == indexs.end()) {
+                indexs[s[i]] = i;
             }
-
-            if (charIndexT.find(t[i]) == charIndexT.end()) {
-                charIndexT[t[i]] = i;
+            if (indext.find(t[i]) == indext.end()) {
+                indext[t[i]] = i;
             }
-
-           
-        }
-        for(int i=0;i<s.length();i++){
-             if (charIndexS[s[i]] != charIndexT[t[i]]) {
+            if (indexs[s[i]] != indext[t[i]]) {
                 return false;
             }
         }
-
-        return true;        
+        return true;
     }
 };
