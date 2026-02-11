@@ -13,27 +13,26 @@ public:
     ListNode* rotateRight(ListNode* head, int k) {
         if (!head) return head;
 
-        vector<int> val;   // fixed typo
+        vector<int> val;   
         ListNode* temp = head;
         int cnt = 0;
 
-        // Store values and count nodes
+        
         while (temp != NULL) {
             val.push_back(temp->val);
-            temp = temp->next;   // fixed pointer movement
+            temp = temp->next;   
             cnt++;
         }
 
         if (cnt == 0) return head;
 
-        k = k % cnt;  // important to avoid unnecessary rotation
-
+        k = k % cnt;  
         temp = head;
 
-        // Put rotated values back
+        
         for (int i = 0; i < cnt; i++) {
-            temp->val = val[(i - k + cnt) % cnt];  // corrected rotation logic
-            temp = temp->next;  // move pointer
+            temp->val = val[(i - k + cnt) % cnt];  
+            temp = temp->next;  
         }
 
         return head;
