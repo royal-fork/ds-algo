@@ -1,20 +1,19 @@
 class Solution {
-public:
-    vector<string> res;
-
-    void solver(int idx,string temp,unordered_map<char, string> mp,string digits){
-        if(idx>=digits.length()){
+public: 
+vector<string> res;
+    void solver(int idx,string& temp, unordered_map<char, string> mp,string digits){
+        if(idx==digits.size()){
             res.push_back(temp);
             return;
         }
-        char ch=digits[idx];
-        string s=mp[ch];
-        for(int i=0;i<s.length();i++){
-            temp.push_back(s[i]);
+        char num=digits[idx];
+        string ch=mp[num];
+
+        for(int i=0;i<ch.size();i++){
+            temp.push_back(ch[i]);
             solver(idx+1,temp,mp,digits);
             temp.pop_back();
         }
-
     }
     vector<string> letterCombinations(string digits) {
         if(digits.length()==0){
@@ -32,7 +31,6 @@ public:
         {'9', "wxyz"}};
         solver(0,temp,mp,digits);
         return res;
-
         
     }
 };
