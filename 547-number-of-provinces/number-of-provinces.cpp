@@ -1,7 +1,11 @@
 class Solution {
 public:
      void dfs(int node, vector<int>& visited, vector<vector<int>>& isConnected){
+
         visited[node]=1;
+
+                //adjacency matrix hai list nahi
+
         for(int i = 0; i < isConnected.size(); i++) {
 
             if(isConnected[node][i] == 1 && !visited[i]) {
